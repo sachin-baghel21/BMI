@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet & Plans</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+
+    <style>
+        .accordion-content {
+            display: none;
+        }
+        .accordion-header {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+    <nav class="bg-gray-800 text-white sticky top-0 z-20">
+        <div class="flex flex-wrap items-center justify-between w-screen-xl mx-auto p-4">
+            <a href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">FitnessHub</span>
+            </a>
+            <div class="flex items-center md:order-2 space-x-1 md:space-x-2 rtl:space-x-reverse">
+                <a href="#" class="text-black hover:text-white bg-white hover:bg-blue-700 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Login</a>
+                <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Sign up</a>
+                <button data-collapse-toggle="mega-menu-icons" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu-icons" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                    </svg>
+                </button>
+            </div>
+            <div id="mega-menu-icons" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
+                <ul class="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
+                    <li>
+                        <button id="mega-menu-icons-dropdown-button" data-dropdown-toggle="mega-menu-icons-dropdown" class="flex items-center justify-between w-full py-2 px-3 font-medium border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                            Fitness & health calculator 
+                            <svg class="w-2.5 h-2.5 ms-3 mt-1 mx-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                 </svg>
+                        </button>
+                        <div id="mega-menu-icons-dropdown" class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-gray-800 border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
+                            
+                            <div class="p-4 pb-0 text-gray-300 md:pb-4 dark:text-white">
+                                <ul class="space-y-4">
+                                    <li>
+                                        <a href="BMI-Calculator.html" class="flex items-center text-gray-300 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">BMI</span>
+                                            <svg class="w-3 h-3 me-2 text-gray-400 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M19 4h-1a1 1 0 1 0 0 2v11a1 1 0 0 1-2 0V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a1 1 0 0 0-1-1ZM3 4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4Zm9 13H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3H4a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-3h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2Zm0-3h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2Z"/>
+                                                <path d="M6 5H5v1h1V5Z"/>
+                                            </svg>
+                                            BMI
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="BMRCal.html" class="flex items-center text-gray-300 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                            <span class="sr-only">BMR</span>
+                                            <svg class="w-3 h-3 me-2 text-gray-400 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z"/>
+                                            </svg>
+                                            BMR
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="Bodyfat.html" class="flex items-center text-gray-300 hover:text-blue-600 group">
+                                            <span class="sr-only">Body Fat Percentage</span>
+                                            <svg class="w-3 h-3 me-2 text-gray-400 group-hover:text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                                                <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10ZM17 13h-2v-2a1 1 0 0 0-2 0v2h-2a1 1 0 0 0 0 2h2v2a1 1 0 0 0 2 0v-2h2a1 1 0 0 0 0-2Z"/>
+                                            </svg>
+                                            Body Fat Percentage
+                                        </a>
+                                    </li>
+                                 
+                                </ul>
+                            </div>
+                            <div class="p-4 text-gray-900 dark:text-white">
+                                <ul class="space-y-4">
+                                    <li>
+                                        <a href="Calories.html" class="flex items-center text-gray-300 hover:text-blue-600 group">
+                                            <span class="sr-only">Calories</span>
+                                            <svg class="w-3 h-3 me-2 text-gray-400 group-hover:text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                                                <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10ZM17 13h-2v-2a1 1 0 0 0-2 0v2h-2a1 1 0 0 0 0 2h2v2a1 1 0 0 0 2 0v-2h2a1 1 0 0 0 0-2Z"/>
+                                            </svg>
+                                            Calories
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="DietPlan.html" class="block py-2 px-3 text-blue-600 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Diet Plans</a>
+                    </li>
+                    <li>
+                        <a href="Nutrition.html" class="block py-2 px-3 text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Nutrition Values</a>
+                    </li>
+                    <li>
+                        <a href="artical.html" class="block py-2 px-3 text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Articals & Stories</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav> 
+    <!-- Header Section -->
+    <header class="bg-indigo-600 p-6">
+        <div class="container mx-auto">
+            <h1 class="text-3xl font-bold text-center">Diet & Plans</h1>
+            <p class="text-center mt-2">Your guide to health, growth, and wellness.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-10">
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-4">Understanding Your Body</h2>
+            <p>
+                A healthy diet is crucial for body growth and overall wellness. It is essential to understand your body's nutritional needs based on your age, gender, and activity level. 
+                This guide aims to provide insights on how to maintain a balanced diet, manage calories, and develop effective daily plans.
+            </p>
+        </section>
+
+        <!-- Image Section -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-4">Healthy Eating Examples</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <img src="/assets/Diet-1.png" alt="Healthy Meal 1" class="w-full h-48 bg-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg">Meal 1: Grilled Chicken Salad</h3>
+                        <p>A delicious mix of greens, grilled chicken, and a variety of vegetables.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <img src="/assets/Diet-2.png" alt="Healthy Meal 2" class="w-full h-48 bg-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg">Meal 2: Quinoa Bowl</h3>
+                        <p>A nutritious bowl of quinoa with roasted vegetables and chickpeas.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <img src="/assets/Diet-3.png" alt="Healthy Meal 3" class="w-full h-48 bg-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg">Meal 3: Smoothie</h3>
+                        <p>A refreshing smoothie packed with fruits and spinach.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-4">Caloric Intake and Growth</h2>
+            <p>
+                Caloric intake is essential for body growth and maintaining energy levels. Depending on your goals (muscle gain, weight loss, or maintenance), your daily caloric needs may vary.
+                Here are some general guidelines:
+            </p>
+            <ul class="list-disc list-inside mt-4">
+                <li>Adults typically require 2,000 - 2,500 calories daily.</li>
+                <li>Active individuals may need more calories to support their energy expenditure.</li>
+                <li>Consult with a nutritionist to personalize your caloric intake based on your health goals.</li>
+            </ul>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-4">Daily Diet Plan Example</h2>
+            <div class="bg-gray-800 p-4 rounded-lg">
+                <h3 class="text-lg font-bold mb-2">Sample Diet Plan for a Day:</h3>
+                <div class="space-y-2">
+                    <p><strong>Breakfast:</strong> Oatmeal with fruits and nuts</p>
+                    <p><strong>Snack:</strong> Greek yogurt with honey</p>
+                    <p><strong>Lunch:</strong> Grilled chicken salad with mixed vegetables</p>
+                    <p><strong>Snack:</strong> A piece of fruit (apple or banana)</p>
+                    <p><strong>Dinner:</strong> Baked salmon with quinoa and steamed broccoli</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-4">Weekly Meal Prep Tips</h2>
+            <p>
+                Meal prepping can save time and help you stay on track with your diet. Here are some tips:
+            </p>
+            <ul class="list-disc list-inside mt-4">
+                <li>Plan your meals for the week ahead.</li>
+                <li>Cook in bulk and portion out meals.</li>
+                <li>Include a variety of foods to ensure balanced nutrition.</li>
+                <li>Store meals in clear containers for easy access.</li>
+            </ul>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-4">Stay Active</h2>
+            <p>
+                Regular physical activity is as important as a balanced diet for growth and health. Aim for at least 150 minutes of moderate-intensity exercise each week, including:
+            </p>
+            <ul class="list-disc list-inside mt-4">
+                <li>Cardiovascular exercises (walking, running, cycling)</li>
+                <li>Strength training (weight lifting, bodyweight exercises)</li>
+                <li>Flexibility and balance exercises (yoga, stretching)</li>
+            </ul>
+        </section>
+
+        <!-- Accordion Section -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold mb-4">Common Questions</h2>
+            <div class="accordion">
+                <div class="accordion-header bg-gray-800 p-4 rounded-lg mb-2" onclick="toggleAccordion(this)">
+                    <h3 class="font-bold">What are macronutrients?</h3>
+                </div>
+                <div class="accordion-content bg-gray-700 p-4 rounded-lg mb-2">
+                    <p>Macronutrients are the nutrients required by the body in large amounts to provide energy and support bodily functions. They include carbohydrates, proteins, and fats, each playing distinct roles: carbohydrates serve as the primary energy source, proteins are essential for building and repairing tissues, and fats provide energy, support cell growth, and help absorb certain vitamins.</p>
+
+                </div>
+                <div class="accordion-header bg-gray-800 p-4 rounded-lg mb-2" onclick="toggleAccordion(this)">
+                    <h3 class="font-bold">How can I calculate my daily caloric needs?</h3>
+                </div>
+                <div class="accordion-content bg-gray-700 p-4 rounded-lg mb-2">
+                    <p>To calculate your daily caloric needs, you can use the Harris-Benedict equation, which estimates your Basal Metabolic Rate (BMR) based on your age, gender, weight, and height. Once you have your BMR, multiply it by an activity factor (sedentary, lightly active, moderately active, very active) to account for your physical activity level. This gives you your Total Daily Energy Expenditure (TDEE), which indicates how many calories you need to maintain your current weight.</p>
+
+                </div>
+                <div class="accordion-header bg-gray-800 p-4 rounded-lg mb-2" onclick="toggleAccordion(this)">
+                    <h3 class="font-bold">What is the role of fiber in the diet?</h3>
+                </div>
+                <div class="accordion-content bg-gray-700 p-4 rounded-lg mb-2">
+                    <p>Fiber aids in digestion, helps maintain a healthy weight, and lowers the risk of diabetes and heart disease.
+                        Fiber plays a crucial role in the diet by promoting digestive health and preventing constipation. It helps regulate blood sugar levels, lowers cholesterol, and supports a healthy weight by promoting a feeling of fullness. Additionally, fiber-rich foods, such as fruits, vegetables, whole grains, and legumes, contribute to overall health by providing essential nutrients and aiding in the prevention of various chronic diseases.
+                        
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 p-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Diet & Plans. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const isVisible = content.style.display === "block";
+            content.style.display = isVisible ? "none" : "block";
+            if (!isVisible) {
+                content.classList.add("transition", "duration-500", "ease-in-out");
+                setTimeout(() => {
+                    content.style.display = "block";
+                }, 50);
+            } else {
+                content.classList.remove("transition", "duration-500", "ease-in-out");
+            }
+        }
+    </script>
+    <script src="app.js"></script>
+
+</body>
+</html>
