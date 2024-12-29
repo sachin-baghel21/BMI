@@ -1,5 +1,6 @@
 // backend/db.js
 const mysql = require('mysql');
+const color = require('colors');
 
 // Create a connection to the database
 const connection = mysql.createConnection({
@@ -15,7 +16,7 @@ connection.connect((err) => {
     console.error('Error connecting to the database: ' + err.stack);
     return;
   }
-  console.log('Connected to the database');
+  console.log('Connected to the database...'.green.bold);
 });
 
 // Export the connection to use in other files

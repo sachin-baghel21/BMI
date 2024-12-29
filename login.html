@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BMI Website - Login</title>
+  <link rel="icon" href="assets/BMI-icon.webp"> <!-- Favicon -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts Integration -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
@@ -35,8 +36,8 @@
     <div class="container mx-auto flex justify-between items-center">
       <h1 class="md:text-3xl text-xl font-bold text-white">Fitness Hub</h1>
       <nav class="space-x-4">
-        <a href="login.html" id="loginTab" class="text-white font-semibold hover:text-yellow-400">Login</a>
-        <a href="signup.html" id="signupTab" class="text-gray-200 hover:text-yellow-400">Signup</a>
+        <a href="login" id="loginTab" class="text-white font-semibold hover:text-yellow-400">Login</a>
+        <a href="/" id="signupTab" class="text-gray-200 hover:text-yellow-400">Signup</a>
       </nav>
     </div>
   </header>
@@ -95,7 +96,7 @@
         <!-- Login Button with Icon -->
         <button
           type="submit"
-          class="w-full bg-blue-700 text-white p-3 rounded-lg font-bold hover:bg-blue-600 transition duration-300"
+          class="w-full bg-blue-700 active:bg-blue-800 text-white p-3 rounded-lg font-bold hover:bg-blue-600 transition duration-300"
         >
           Login <i class="fas fa-sign-in-alt"></i>
         </button>
@@ -124,7 +125,43 @@ document.querySelector('form').addEventListener('submit', function (e) {
     }
   });
 });
-
   </script>
+  <script>
+    const loginForm = document.querySelector('#loginForm');
+    
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+  
+      const formData = new FormData(loginForm);
+      const data = {
+        email: formData.get('email'),
+        password: formData.get('password'),
+      };
+  
+      try {
+        const response = await fetch('/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+  
+        const result = await response.json();
+  
+        if (result.success) {
+          // Redirect on successful login
+          alert(result.message);
+          window.location.href = result.redirectUrl;
+        } else {
+          // Show an alert for invalid login
+          alert(result.message);
+        }
+      } catch (error) {
+        console.error('Error during login:', error);
+      }
+    });
+  </script>
+  
 </body>
 </html>

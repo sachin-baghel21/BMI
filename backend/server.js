@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const color = require('color')
 const con = require('./db'); // Import database connection
 
 const app = express();
@@ -16,17 +17,21 @@ app.use('/assets', express.static(path.join(__dirname, '../assets')));
 
 // Serve signup.html when accessing the root route
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../signup.html')); // Adjust path to point to the root folder
+  res.sendFile(path.join(__dirname, '../index.html')); // Adjust path(signup page) to point to the root folder
 });
-
+//
 // Serve login.html
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, '../login.html')); // Adjust path to point to the root folder
+  res.sendFile(path.join(__dirname, '../login.html'));
+});
+//logout route here
+app.get('/logout', (req, res) => {
+  res.redirect('/login'); // Redirect to login form
 });
 
 // Serve index.html
-app.get('/index.html', (req, res) => {
-  res.sendFile(path.join(__dirname, '../index.html'));
+app.get('/Home.html', (req, res) => {
+  res.sendFile(path.join(__dirname, '../Home.html'));
 });
 
 // Serve article.html
@@ -93,9 +98,7 @@ app.post('/signup', (req, res) => {
       console.log('Record added successfully with ID:', result.insertId);
 
       // Send success response and redirect after success
-      res.send('Signup successful! Your data has been saved.');
-      // Ensure no further responses are sent after the redirect
-      return;
+      return res.redirect('/login');
     });
   });
 });
@@ -121,19 +124,18 @@ app.post('/login', (req, res) => {
 
     // Check if user exists
     if (results.length === 0) {
-      return res.status(401).send('Invalid email or password.');
+      // return res.status(401).send('Invalid email or password.');
+      console.log("Invalid details!".red.bold);
+      return res.status(200).send({ success: false, message: 'Invalid email or password.' });
     }
 
     // Successful login
-    console.log('Login successful for user:', results[0].name);
-    console.log(`Login successful! Welcome, ${results[0].name}`);
-    
+    console.log('Login successful for user:'.yellow.bgBlack, results[0].name);
     // Redirect to index.html upon successful login
-    res.redirect('/index.html');
-    // res.send(`<script>alert("Welcome to My Website 😎")</script>`);
+    //  return res.status(200).redirect('/Home.html');
+    return res.status(200).send({ success: true, message:'login successfully!', redirectUrl: '/Home.html' });
   });
 });
-
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);

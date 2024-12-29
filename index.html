@@ -1,294 +1,146 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fitness Page</title>
+  <title>BMI Website - Signup</title>
+  <link rel="icon" href="assets/BMI-icon.webp"> <!-- Favicon -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
-
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Custom Transparent and Glass Effect */
+    .glass {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .input-glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  </style>
 </head>
-<body>
-  <!-- Navbar with Smooth Mega Menu -->
-  <nav class="bg-gray-800 text-white sticky top-0 z-20">
-    <div class="flex flex-wrap items-center justify-between w-screen-xl mx-auto p-4">
-        <a href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">FitnessHub</span>
-        </a>
-        <div class="flex items-center md:order-2 space-x-1 md:space-x-2 rtl:space-x-reverse">
-            <a href="#" class="md:block hidden text-black hover:text-white bg-white hover:bg-blue-700 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Login</a>
-             <a href="#" class="md:block hidden text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Sign up</a>
-            
-            <button data-collapse-toggle="mega-menu-icons" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu-icons" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-                </svg>
-            </button>
-        </div>
-        <div id="mega-menu-icons" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
-          <ul class="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
-              <li>
-                  <button id="mega-menu-icons-dropdown-button" data-dropdown-toggle="mega-menu-icons-dropdown" class="flex items-center justify-between w-full py-2 px-3 font-medium border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
-                      Fitness & health calculator 
-                      <svg class="w-2.5 h-2.5 ms-3 mt-1 mx-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-           </svg>
-                  </button>
-                  <div id="mega-menu-icons-dropdown" class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-gray-800 border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
-                      
-                      <div class="p-4 pb-0 text-gray-300 md:pb-4 dark:text-white">
-                          <ul class="space-y-4">
-                              <li>
-                                  <a href="BMI-Calculator.html" class="flex items-center text-gray-300 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
-                                      <span class="sr-only">BMI</span>
-                                      <svg class="w-3 h-3 me-2 text-gray-400 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                          <path d="M19 4h-1a1 1 0 1 0 0 2v11a1 1 0 0 1-2 0V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a1 1 0 0 0-1-1ZM3 4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4Zm9 13H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3H4a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-3h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2Zm0-3h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2Z"/>
-                                          <path d="M6 5H5v1h1V5Z"/>
-                                      </svg>
-                                      BMI
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="BMRCal.html" class="flex items-center text-gray-300 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
-                                      <span class="sr-only">BMR</span>
-                                      <svg class="w-3 h-3 me-2 text-gray-400 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                          <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z"/>
-                                      </svg>
-                                      BMR
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="Bodyfat.html" class="flex items-center text-gray-300 hover:text-blue-600 group">
-                                      <span class="sr-only">Body Fat Percentage</span>
-                                      <svg class="w-3 h-3 me-2 text-gray-400 group-hover:text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                                          <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10ZM17 13h-2v-2a1 1 0 0 0-2 0v2h-2a1 1 0 0 0 0 2h2v2a1 1 0 0 0 2 0v-2h2a1 1 0 0 0 0-2Z"/>
-                                      </svg>
-                                      Body Fat Percentage
-                                  </a>
-                              </li>
-                           
-                          </ul>
-                      </div>
-                      <div class="p-4 text-gray-900 dark:text-white">
-                          <ul class="space-y-4">
-                              <li>
-                                  <a href="Calories.html" class="flex items-center text-gray-300 hover:text-blue-600 group">
-                                      <span class="sr-only">Calories</span>
-                                      <svg class="w-3 h-3 me-2 text-gray-400 group-hover:text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                                          <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10ZM17 13h-2v-2a1 1 0 0 0-2 0v2h-2a1 1 0 0 0 0 2h2v2a1 1 0 0 0 2 0v-2h2a1 1 0 0 0 0-2Z"/>
-                                      </svg>
-                                      Calories
-                                  </a>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
-              </li>
-              <li>
-                  <a href="DietPlan.html" class="block py-2 px-3 text-blue-600 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Diet Plans</a>
-              </li>
-              <li>
-                  <a href="Nutrition.html" class="block py-2 px-3 text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Nutrition Values</a>
-              </li>
-              <li>
-                  <a href="artical.html" class="block py-2 px-3 text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Articals & Stories</a>
-              </li>
-          </ul>
-      </div>
-    </div>
-</nav> 
-<!-- This is home section with crauosel part -->
- <!-- <section>
-    <img src="/assets/first-img.png" class="w-full h-[50vh] bg-cover" alt="">
- </section> -->
- 
+<body class="min-h-screen flex flex-col justify-between bg-gradient-to-br from-purple-500 via-blue-600 to-purple-700 text-white">
 
-<div id="indicators-carousel" class="relative w-full" data-carousel="static">
-  <!-- Carousel wrapper -->
-  <div class="relative z-[-10] h-56 overflow-hidden md:h-96">
-       <!-- Item 1 -->
-      <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-          <img src="/assets/second-img.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-      </div>
-      <!-- Item 2 -->
-      <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img src="/assets/slide--1.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-      </div>
-      <!-- Item 3 -->
-      <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img src="/assets/first-img.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-      </div>
-      <!-- Item 4 -->
-      <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img src="/assets/first-img.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-      </div>
-  </div>
-  <!-- Slider indicators -->
-  <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
-      <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
-  </div>
-  <!-- Slider controls -->
-</div>
+  <!-- Navigation -->
+  <header class="w-full bg-indigo-500 p-4 sticky top-0">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="md:text-3xl text-xl font-bold text-white">Fitness Hub</h1>
+      <nav class="space-x-4">
+        <a href="/login" id="loginTab" class="text-white font-semibold hover:text-yellow-400">Login</a>
+        <a href="/" id="signupTab" class="text-gray-200 hover:text-yellow-400">Signup</a>
+      </nav>
+    </div>
+  </header>
 
- <!-- title code here -->
- <section class="text-gray-300 bg-gray-900 body-font font-sans">
-    <div class="container px-5 py-24 mx-auto">
-      <div class="flex flex-wrap -m-4">
+  <!-- Main Content -->
+  <main class="container mx-auto flex flex-col lg:flex-row items-center justify-between md:mt-8 px-4">
+    <!-- Left Section -->
+    <section class="w-full lg:w-1/2 mb-8 lg:mb-0 text-center lg:text-left">
+      <h2 class="text-4xl font-extrabold mb-4">
+        Welcome to <span class="text-yellow-300">Fitness Hub</span>
+      </h2>
+      <p class="text-lg text-gray-200 italic">
+        "Stay focused, stay determined, and work hard to achieve your health goals. 
+        A healthy mind resides in a healthy body."
+      </p>
+    </section>
+
+    <!-- Signup Form Section -->
+    <section class="w-full lg:w-1/2 glass rounded-xl shadow-lg p-8 text-white">
+   <!-- signup.html -->
+<form action="/signup" method="POST" id="signupForm" class="space-y-6">
+    <h3 class="text-2xl font-bold text-center text-white">Signup</h3>
   
-        <!-- Card 1: Writing Tips -->
-        <div class="p-4 lg:w-1/3">
-          <div class="h-full bg-gray-800 bg-opacity-50 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-            <h2 class="tracking-widest text-xs title-font font-medium text-indigo-400 mb-1">Healthy Eating Habits</h2>
-            <h1 class="title-font sm:text-2xl text-xl font-medium text-white mb-3">Choose nutrient-dense foods to keep energy high and cravings low.</h1>
-            <p class="leading-relaxed mb-3"> "Fuel your body with balanced meals, incorporating proteins, complex carbs, and healthy fats. Small changes, like cutting out sugary drinks, can make a big impact on your health."</p>
-            <a class="text-indigo-400 inline-flex items-center">Read More
-              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
-            <div class="text-center mt-4 flex justify-center absolute bottom-0 left-0 w-full py-4">
-              <span class="text-gray-300 inline-flex items-center text-sm pr-3 py-1">
-                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="3"></circle>
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                </svg>1.5K Views
-              </span>
-              <span class="text-gray-300 inline-flex items-center text-sm">
-                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 11.5a8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7"></path>
-                </svg>12 Comments
-              </span>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Card 2: Storytelling Techniques -->
-        <div class="p-4 lg:w-1/3">
-          <div class="h-full bg-gray-800 bg-opacity-50 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-            <h2 class="tracking-widest text-xs title-font font-medium text-indigo-400 mb-1">Effective Workout Routines</h2>
-            <h1 class="title-font sm:text-2xl text-xl font-medium text-white mb-3">Combine cardio, strength, and flexibility exercises for balanced fitness.</h1>
-            <p class="leading-relaxed mb-3">"Find a routine that fits your goals, whether it’s building muscle, enhancing endurance, or boosting flexibility. Consistency and gradual progress are key to avoiding injury and reaching your goals."</p>
-            <a class="text-indigo-400 inline-flex items-center">Learn More
-              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
-            <div class="text-center mt-4 flex justify-center absolute bottom-0 left-0 w-full py-4">
-              <span class="text-gray-300 inline-flex items-center text-sm pr-3 py-1">
-                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="3"></circle>
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                </svg>980 Views
-              </span>
-              <span class="text-gray-300 inline-flex items-center text-sm">
-                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 11.5a8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7"></path>
-                </svg>8 Comments
-              </span>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Card 3: Editing Tips -->
-        <div class="p-4 lg:w-1/3">
-          <div class="h-full bg-gray-800 bg-opacity-50 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-            <h2 class="tracking-widest text-xs title-font font-medium text-indigo-400 mb-1">"Mindful Rest & Recovery</h2>
-            <h1 class="title-font sm:text-2xl text-xl font-medium text-white mb-3">Allow your body time to recover to maximize fitness gains</h1>
-            <p class="leading-relaxed mb-3">"Recovery is as important as the workout itself. Sleep well, stay hydrated, and take rest days to let muscles rebuild. Incorporating mindfulness and stretching routines can also aid recovery"</p>
-            <a class="text-indigo-400 inline-flex items-center">Explore Tips
-              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
-            <div class="text-center mt-4 flex justify-center absolute bottom-0 left-0 w-full py-4">
-              <span class="text-gray-300 inline-flex items-center text-sm pr-3 py-1">
-                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="3"></circle>
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                </svg>720 Views
-              </span>
-              <span class="text-gray-300 inline-flex items-center text-sm">
-                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 11.5a8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7"></path>
-                </svg>4 Comments
-              </span>
-            </div>
-          </div>
-        </div>
-        
+    <!-- Name Input -->
+    <div class="relative">
+      <label for="name" class="block text-sm font-medium">Name</label>
+      <div class="flex items-center input-glass rounded-lg p-3 shadow-md">
+        <i class="fas fa-user text-gray-300 mr-3"></i>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="w-full bg-transparent focus:outline-none text-white placeholder-gray-300"
+          placeholder="Enter your name"
+          required
+        />
       </div>
     </div>
-  </section>
   
-  <!-- This is contact code here -->
-  <section class="text-gray-400 bg-gray-900 body-font relative">
-    <div class="absolute inset-0 bg-gray-900">
-        <!-- Updated Google Maps URL for India -->
-        <iframe 
-            title="map" 
-            width="100%" 
-            height="100%" 
-            frameborder="0" 
-            marginheight="0" 
-            marginwidth="0" 
-            scrolling="no" 
-            src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=India&ie=UTF8&t=&z=5&iwloc=B&output=embed" 
-            style="filter: grayscale(1) contrast(1.2) opacity(0.16);">
-        </iframe>
+    <!-- Email Input -->
+    <div class="relative">
+      <label for="emailSignup" class="block text-sm font-medium">Email</label>
+      <div class="flex items-center input-glass rounded-lg p-3 shadow-md">
+        <i class="fas fa-envelope text-gray-300 mr-3"></i>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="w-full bg-transparent focus:outline-none text-white placeholder-gray-300"
+          placeholder="Enter your email"
+          required
+        />
+      </div>
     </div>
-    
-    <!-- Form Container -->
-    <div class="container px-5 py-24 mx-auto flex">
-        <div class="lg:w-1/3 md:w-1/2 bg-gray-900 shadow-md rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10">
-            <h2 class="text-white text-lg mb-1 font-medium title-font">Feedback</h2>
-            <p class="leading-relaxed mb-5">Your feedback helps us improve our services and serve you better</p>
-            
-            <!-- Email Input -->
-            <div class="relative mb-4">
-                <label for="email" class="leading-7 text-sm text-gray-400">Email</label>
-                <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-            </div>
-            
-            <!-- Message Input -->
-            <div class="relative mb-4">
-                <label for="message" class="leading-7 text-sm text-gray-400">Message</label>
-                <textarea 
-                    id="message" 
-                    name="message" 
-                    class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
-            </div>
-            
-            <!-- Submit Button -->
-            <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
-            <p class="text-xs text-gray-400 text-opacity-90 mt-3">Hurry Up</p>
-        </div>
+  
+    <!-- Password Input -->
+    <div class="relative">
+      <label for="passwordSignup" class="block text-sm font-medium">Password</label>
+      <div class="flex items-center input-glass rounded-lg p-3 shadow-md">
+        <i class="fas fa-lock text-gray-300 mr-3"></i>
+        <input
+          type="password"
+          name="password"
+          class="w-full bg-transparent focus:outline-none text-white placeholder-gray-300"
+          placeholder="Create a password"
+          required
+        />
+      </div>
     </div>
-</section>
+  
+    <!-- Signup Button -->
+    <button
+      type="submit"
+      class="w-full bg-green-500 text-white p-3 rounded-lg font-bold hover:bg-green-600 hover:shadow-lg transition duration-300"
+    >
+      Signup
+    </button>
+  
+    <!-- Error or Success Message -->
+    <p id="message" class="text-center mt-4 text-sm"></p>
+  </form>
+  
+    </section>
+  </main>
 
-<!-- this is footer code  -->
-<footer class="text-gray-400 bg-indigo-700 body-font w-full h-full flex-col items-center">
-   <div class="w-full">
-       <a href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
-           <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Fitness Logo" />
-           <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">FitnessHub</span>
-        </a>
-    </div>
-  <div class="w-fit mx-auto py-8 text-center text-white">
-    <h1>Fitness Hub</h1>
-    <h3>@PoweredBy 2024</h3>
-  </div>
+  <!-- Footer Section -->
+  <footer class="bg-black bg-opacity-70 text-center py-4 mt-8">
+    <p class="text-gray-300">
+        <h1>
+            © 2024 Fitness Hub. All Rights Reserved.
+        </h1>
+      <a href="#" class="text-yellow-400 hover:text-yellow-300">Privacy Policy</a> | 
+      <a href="#" class="text-yellow-400 hover:text-yellow-300">Terms of Service</a>
+    </p>
   </footer>
-<script src="app.js"></script>
+  <script>
+    // Basic client-side validation
+document.querySelector('form').addEventListener('submit', function (e) {
+  const inputs = this.querySelectorAll('input');
+  inputs.forEach((input) => {
+    if (!input.value.trim()) {
+      alert(`${input.name} is required`);
+      e.preventDefault();
+    }
+  });
+});
+</script>
 </body>
 </html>
